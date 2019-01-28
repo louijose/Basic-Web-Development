@@ -1,0 +1,128 @@
+@import "https://fonts.googleapis.com/css?family=Poor+Story";
+#scss-playground header {
+  font-family: "Poor Story";
+  color: brown;
+  font-size: 60px;
+}
+
+#deep {
+  font-size: 40px;
+}
+#deep #deeper {
+  font-size: 30px;
+}
+#deep #deeper #deepest {
+  font-size: 20px;
+}
+
+#box {
+  width: 150px;
+  height: 150px;
+  background-color: green;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  -webkit-border-radius: 15px;
+  -moz-border-radius: 15px;
+  -ms-border-radius: 15px;
+  border-radius: 15px;
+}
+#box .container-table {
+  display: table;
+}
+
+#box {
+  border: 6px solid black;
+}
+
+.text-1 {
+  font-size: 10px;
+}
+
+.text-2 {
+  font-size: 20px;
+}
+
+.text-3 {
+  font-size: 30px;
+}
+
+.text-4 {
+  font-size: 40px;
+}
+
+.text-5 {
+  font-size: 50px;
+}
+
+.blue-bg {
+  background-color: blue;
+}
+
+.black-bg {
+  background-color: black;
+}
+
+.red-bg {
+  background-color: red;
+}
+
+.box {
+  height: 200px;
+  width: 200px;
+  border-radius: 20px;
+}
+
+.text-1 {
+  font-size: 5px;
+}
+
+.text-2 {
+  font-size: 10px;
+}
+
+.text-3 {
+  font-size: 15px;
+}
+
+.text-4 {
+  font-size: 20px;
+}
+
+.text-5 {
+  font-size: 25px;
+}
+
+.text-6 {
+  font-size: 30px;
+}
+
+.text-7 {
+  font-size: 35px;
+}
+
+.text-8 {
+  font-size: 40px;
+}
+
+.text-9 {
+  font-size: 45px;
+}
+
+.text-10 {
+  font-size: 50px;
+}
+
+.info, .important-info {
+  width: 200px;
+  border: 1px solid black;
+  margin: 0 auto;
+}
+
+.important-info {
+  background-color: magenta;
+}
+
+/*# sourceMappingURL=WebDevelopment%20103-Sass.css.map */

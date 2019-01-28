@@ -1,0 +1,112 @@
+//sass --watch input.scss output.css
+@import "https://fonts.googleapis.com/css?family=Poor+Story";
+
+//Storing data with Sass variables
+$header-color: brown;
+$header-font: "Poor Story";
+#scss-playground header {
+    font-family: $header-font;
+    color: $header-color;
+    font-size: 60px;
+}
+//Nest CSS with Sass
+#deep {
+    font-size: 40px;
+    #deeper {
+        font-size: 30px;
+        #deepest {
+            font-size: 20px;
+        }
+    }
+}
+//Create reusable CSS with mixins
+//Mixins are like functions for CSS, the definition starts with @mixin followed by a custom name,
+@mixin border-radius($radius){ 
+  -webkit-border-radius: $radius;
+  -moz-border-radius: $radius;
+  -ms-border-radius: $radius;
+  border-radius: $radius;
+}
+//The parameters are optional.
+//A mixin is called with the @include directive,
+#box {
+    .container-table {
+        display: table;
+    }   
+    width: 150px;
+    height: 150px;
+    background-color: green;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    @include border-radius(15px);
+}
+//Add logic to your styles using @if and @else
+@mixin border-stroke($val) {
+    @if $val == light {
+        border: 1px solid black;
+    }
+    @else if $val == medium {
+        border: 3px solid black;
+    }
+    @else if $val == heavy {
+        border: 6px solid black;
+    }
+    @else {
+        border: none;
+    }
+}
+#box {
+    @include border-stroke(heavy);
+}
+//Use loops in Sass using @for 
+@for $j from 1 through 5 {
+    .text-#{$j} { 
+        font-size: 10px * $j; 
+    }
+}
+//The #{$i} part is the syntax to combine a variable (i) with text to make a string. 
+//Map over items in a list using @each
+$colors: (
+    color1: blue,
+    color2: black,
+    color3: red
+);
+@each $key, $color in $colors {
+    .#{$color}-bg {
+        background-color: $color;
+    }
+}
+// @each $color in blue, black, red {
+//     .#{$color}-bg { 
+//         background-color: $color; 
+//     }
+// }
+.box {
+    height: 200px;
+    width: 200px;
+    border-radius: 20px;
+}
+//Applying a style until a condition is met with @while
+$x: 1;
+@while $x < 11 {
+    .text-#{$x} {
+        font-size: 5px * $x;
+    }
+    $x: $x + 1;
+}
+//Partials in Sass are separate files that hold segments of CSS code. Names for partials start with the underscore (_) character, which tells Sass it is a small segment of CSS and not to convert it into a CSS file. Also, Sass files end with the .scss file extension. To bring the code in the partial into another Sass file, use the @import directive.
+//_mixins.scss
+//@import "mixins"
+//Extend one set of CSS styles to another element with @extend
+.info {
+    width: 200px;
+    border: 1px solid black;
+    margin: 0 auto;
+}
+.important-info {
+    @extend .info;
+    background-color: magenta;
+}

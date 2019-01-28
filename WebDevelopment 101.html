@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Intro to WebDevelopment</title>
+    </head>
+
+    <link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=K2D" rel="stylesheet">
+    <!-- <link rel="stylesheet" type="text/css" href="css-file-name.css"> -->
+    <!--
+        @media (max-width: 100px) { /* CSS Rules */ } 
+    -->
+    <style>
+        /* "." to reference classes and "#" to reference id's */
+        /* ":root" works as a container for all variables */
+        /* "display: none;" or "visibility: hidden;" hides content for everyone */
+        :root {
+            --txt-col: green;/* Variable declaration */
+        }
+        body {
+            background: repeating-linear-gradient(
+                    45deg,
+                    yellow 0px,
+                    yellow 40px,
+                    black 40px,
+                    black 80px
+            );
+            color: var(--txt-col, green);/* Using a variable with an added fallback value */ 
+        }
+        main {
+            text-align: center;
+            padding: 30px 0 0 0;
+            /* text-align: justify; */
+        }
+        /*
+        img {
+            max-width: 100%;
+            display: block;
+            height: auto;
+        }
+        */
+        /* Viewport units vw, vh, vmin, vmax 
+           eg: 10vw would be 10% of the viewport's width.
+        */
+        a:hover {
+            color: red;
+        }
+        .table {
+            display: none;
+        }
+        .box {
+            border-width: 10px;
+            border-style: solid;
+            border-color: rgba(0, 0, 128, 0.9);
+            text-align: left;
+        }
+        .box:hover {
+            transform: scale(1.1);
+            transform: skewX(3deg);
+        }
+        .box-spl {
+            padding: 40px 50px 40px 200px;
+            margin: 50px 300px 50px 300px;
+            background: url(https://i.imgur.com/MJAkxbh.png);
+            color: rgb(0, 89, 255);
+            transform: scale(0.9);
+            font-size: 1.5em;/* This is an example of relative measure */
+        }
+        .lobster-text {
+            font-family: lobster;
+            font-size: 60px;
+            font-weight: 800;
+            text-transform: capitalize;
+        }
+        /*
+            text-transform: uppercase;
+            text-transform: lowercase;
+            text-transform: initial;
+        */
+        /*
+        #html {
+            float: left;
+        }
+        #css {
+            float: right;
+        }
+        */
+        .k2d {
+            font-family: 'K2D', sans-serif;
+            opacity: 1;
+        }
+        .std-img {
+            width: 100px;
+            height: 100px;
+        }
+        /*
+        .std-img:hover {
+            background-color: red;
+        }
+        */
+        .std-border {
+            position: relative;
+            background-color: white;
+            border-style: double;
+            border-color: hsl(180, 100%, 50%);
+            border-width: 10px;
+            border-radius: 20%;
+        }
+        .d1 {
+            background:LightSkyBlue;
+        }
+        .d2 {   
+            background:LightSalmon;
+            justify-self: center;/* stretch, start, end */
+            align-self: end;
+        }
+        .d3 {
+            background:PaleTurquoise;
+            grid-area: R3E3;
+        }
+        .d4 {
+            background:LightPink;
+            grid-area: 1/ 3/ 3/ 4;
+            /*
+            grid-area: horizontal line to start at / vertical line to start at / horizontal line to end at / vertical line to end at;
+            */
+        }
+        .d5 {
+            background:PaleGreen;
+            grid-column: 1/ 3;
+            grid-row: 2/ 4;
+        }
+        .cssgrid {
+            font-size: 40px;
+            width: 100%;
+            margin-bottom: 70px;
+            background: LightGray;
+            display: grid;
+            grid-template-columns: 1fr 30% 3fr auto;/* fr: sets the column or row to a fraction of the available space */ 
+            grid-template-rows: repeat(3, minmax(90px, 1fr));/* repeat(auto-fill, minmax(90px, 1fr)); or repeat(auto-fit, minmax(90px, 1fr)); */
+            grid-column-gap: 10px;
+            grid-row-gap: 5px;
+            /*
+            grid-gap: 10px 5px; //One argument means same gap for columns and rows
+            justify-items: end; //Main axis alignment of all items
+            align-items: start; //Cross axis alignment of all items
+            */
+            grid-template-areas: 
+                "R1E1 R1E2 R1E3 R1E4"
+                "R2E1 R2E2 R2E3 R2E4"
+                "R3E1 R3E2 R3E3 R3E4";/* "." for empty cell */ 
+        }
+        [type="checkbox"] {
+            margin: 10px 5px 15px 5px;
+            /* margin: auto; To centre an element */
+        }
+        [type="radio"] {
+            margin: 10px 5px 15px 5px;
+        }
+        #index {
+            box-shadow: 10px 20px 20px 30px rgba(255, 255, 255, 0.19), 25px 20px 20px rgba(255, 255, 255, 0.23);
+            line-height: 40px;
+            margin-bottom: 70rem;
+        }
+        #index:focus {
+            box-shadow: 10px 20px 20px 90px rgba(8, 12, 228, 0.50), 25px 20px 20px rgba(224, 19, 19, 0.23);
+        }
+        #soundclip {
+            margin-bottom: 50px;
+        }
+        #anim:hover {
+            animation-name: rainbow;
+            animation-duration: 3s;
+            animation-fill-mode: forwards;
+            animation-iteration-count: infinite;
+            animation-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);/* ease-in, ease-out, linear */
+        }
+        @keyframes rainbow {
+            0% {
+                background-color: blue;
+                left: 0px;
+            }
+            50% {
+                background-color: green;
+                left: 40px;
+            }
+            100% {
+                background-color: red;
+                left: -40px;
+            }
+        }
+        #form-section {
+            background-color: silver !important;/* Adding "!important" will override all other CSS declarations and use the marked one */
+            padding: 40px 40px 40px 40px;
+        }
+        /*
+            position: absolute;
+            position: fixed;
+        */
+        /* z-index property defines what comes on top incase of overlapping elements, value must be an integer, the bigger integer comes on top */
+        #rel-pos {
+            position: relative;
+            bottom: 30px;
+        }
+        #navbar {
+            position: fixed;
+            top: 0px;
+            left: 0px;
+            width: 100%;
+            background: linear-gradient(35deg, #CCFFFF, #FFCCCC);
+            z-index: 2;
+        }
+        #nav {
+            font-size: 15px;
+        }
+        #field {
+            margin-top: 20px;
+        }
+        #foot {
+            position: fixed;
+            bottom: 0px;
+            left: 0px;
+            width: 100%;
+            background: linear-gradient(73deg, rgb(206, 30, 30), rgb(0, 195, 255), rgb(54, 228, 54));
+        }
+        #flexbox {
+            display: flex;
+            height: 300px;
+            width: 100%;
+            margin-top: 90px;
+            background-color: grey;
+            flex-direction: row-reverse;
+            /* Main axis */
+            justify-content: space-around; /* center, flex-start, flex-end, space-between etc */
+            /* Cross axis 
+            align-items: baseline; //stretch etc 
+            */
+            flex-wrap: wrap; /* wrap, wrap-reverse */
+        }
+        /* flex: 1 0 10px; will set the item to flex-grow: 1;, flex-shrink: 0;, and flex-basis: 10px; */
+        #red {
+            /* width: 60%; */
+            flex-basis: 10em;
+            height: 50%;
+            background-color: orangered;
+            /* flex-shrink: 1; */
+            flex-grow: 1;
+            order: 3;
+            align-self: flex-start;
+        }
+        #blue {
+            /* width: 60%; */
+            flex-basis: 15em;
+            height: 50%;
+            background-color: dodgerblue;
+            /* flex-shrink: 2; */
+            flex-grow: 2;
+            order: 2;
+            align-self: flex-end;
+        }
+        #green {
+            /* width: 60%; */
+            flex-basis: 20em;
+            height: 50%;
+            background-color: green;
+            /* flex-shrink: 3; */
+            flex-grow: 3;
+            order: 1;
+            align-self: flex-start;
+        }
+        /* 
+            text-decoration: line-through; <s></s>
+            font-style: italic; <em></em>
+            text-decoration: underline; <u></u>
+        */
+    </style>
+
+    <body>
+        <!-- main, nav, header, footer, article, section -->
+        <!--
+            <div> - groups content
+            <section> - groups related content
+            <article> - groups independent, self-contained content
+        -->
+        <main id="main">
+
+            <!--Navigation bar-->
+            <nav id="navbar">
+                <h2 id="nav"><a href="#main">Scroll to top</a></h2>
+            </nav>
+            <h1 class="lobster-text">WebDevelopment</h1>
+
+            <!--Index-->
+            <div id="index" class="box box-spl" tabindex="0">
+                <p>What we are going to cover:
+                    <ul>
+                        <li><a href="#html">HTML</a></li>
+                        <ol>
+                            <li>Paragraph tag</li>
+                            <li>Ordered List and Unordered List</li>
+                            <li>Image tag</li>
+                            <li>Anchor tag</li>
+                            <li>Form element
+                                <ul>
+                                    Input type: Text, Radio, Checkbox
+                                </ul>
+                            </li>
+                            <li>Buttons</li>
+                        </ol>
+                        <li><a href="#css">CSS</a></li>
+                        <li><a href="#">JavaScript</a></li>
+                    </ul>
+                </p>
+            </div>  
+            
+            <hr>
+
+            <!--HTML-->
+            <div id="html" tabindex="1">
+                <h2 class="k2d">Welcome to HTML</h2>
+                <figure>
+                    <a href="https://en.wikipedia.org/wiki/HTML" target="_blank" accesskey="h">
+                    <img src="html.png" alt="link" id="anim" class="std-img std-border">
+                    </a>
+                    <figcaption>Click image to know more about <strong>HTML</strong></figcaption>
+                </figure>
+            </div>
+
+            <hr>
+
+            <!--CSS-->
+            <div id="css" tabindex="2">
+                <h2 class="k2d">Welcome to <strong>CSS</strong></h2>
+                <figure>
+                    <a href="https://en.wikipedia.org/wiki/Cascading_Style_Sheets" targer="_blank" accesskey="c">
+                    <img src="css.png" alt="link" id="anim" class="std-img std-border">
+                    </a>
+                    <figcaption>Click image to know more about <strong>CSS</strong></figcaption>
+                </figure>
+            </div>
+
+            <hr>
+
+            <!--Form for search-->
+            <div id="form-section" class="std-background">
+                <form action="/url-where-you-want-to-submit-form-data">
+                    <h3 id="rel-pos"><u>Do you wanna learn?</u></h3>
+                    <!--Example for audio-->
+                    <audio id="soundclip" controls>
+                        <source src="https://s3.amazonaws.com/freecodecamp/screen-reader.mp3" type="audio/mpeg">
+                    </audio>
+                    <br>
+                    <!--
+                    <label for="yes">
+                        <input type="radio" name="yes-no" id="yes" checked><em>YES</em>
+                    </label>
+                    <label for="no">
+                        <input type="radio" name="yes-no" id="no"><em>NO</em>
+                    </label>
+                    -->
+                    <label for="yes"><em>Yes</em></label>
+                    <input type="radio" id="yes" name="yes-no" checked>
+                    <label for="no"><em>No</em></label>
+                    <input type="radio" id="no" name="yes-no">
+                    <br>
+                    <input type="date" id="pickdate" name="date">
+                    <!-- 
+                    <input type="text" style="width: 150px" placeholder="What do you wanna learn?" required>
+                    <input type="search" id="search">
+                    -->
+                    <br>
+                    <fieldset id="field">
+                        <legend>Choose one of the three:</legend>
+                        <label for="html">
+                            <input type="checkbox" name="chbox" id="html" checked>HTML
+                        </label>
+                        <label for="css">
+                            <input type="checkbox" name="chbox" id="css">CSS
+                        </label>
+                        <label for="javascript">
+                            <input type="checkbox" name="chbox" id="javascript">JAVASCRIPT
+                        </label>
+                    </fieldset>
+                    <br>
+                    <button type="submit">Submit</button>
+                    <!-- <input type="submit" id="submit">Submit -->
+                </form>
+            </div>
+
+            <!--Table-->
+            <div id="table">
+                <table class="table">
+                    <caption>Example Table</caption>
+                    <thead>
+                    <tr>
+                        <th></th>
+                        <th scope="col">Column1</th>
+                        <th scope="col">Column2</th>
+                        <th scope="col">Column3</th>
+                        <th scope="col">Column4</th>                                        
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <th scope="row">Row1</th>
+                        <td>1</td>
+                        <td>2</td>
+                        <td>3</td>
+                        <td>4</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Row2</th>
+                        <td>1</td>
+                        <td>2</td>
+                        <td>3</td>
+                        <td>4</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Row3</th>
+                        <td>1</td>
+                        <td>2</td>
+                        <td>3</td>
+                        <td>4</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!--Flexbox-->
+            <div id="flexbox">
+                <div id="blue"></div>
+                <div id="red"></div>
+                <div id="green"></div>
+            </div>
+
+            <!--CSSGrid-->
+            <div class="cssgrid">
+                <div class="d1">1</div>
+                <div class="d2">2</div>
+                <div class="d3">3</div>
+                <div class="d4">4</div>
+                <div class="d5">5</div>
+            </div>
+
+            <!--Footer-->
+            <div id="foot">
+                &copy; Started on <time datetime="2018-10-06">6<sup>th</sup>October, 2018</time>
+            </div>
+        </main>
+    </body>
+</html>

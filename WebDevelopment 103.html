@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>WebDevelopment 103</title>
+        <!-- Adding Bootstrap to the application -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"/>
+        <link rel="stylesheet" type="text/css" href="WebDevelopment 103-style.css">
+        <!-- Adding Font Awesome Icons -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" integrity="sha384-XdYbMnZ/QjLh6iI4ogqCTaIjrFk87ip+ekIjefZch0Y+PvJ8CDYtEs1ipDmPorQ+" crossorigin="anonymous">
+        <!-- Adding jQuery -->
+        <!-- <script src="jquery-3.3.1.min.js"></script> -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <!-- Adding animate.css -->
+        <!-- <link rel="stylesheet" href="animate.min.css"> -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css">
+        <!-- Adding Sass (Syntactically Awesome StyleSheets) -->
+        <!-- sass --watch input.scss output.css -->
+        <link rel="stylesheet" type="text/css" href="WebDevelopment 103-Sass.css">
+    </head>
+
+    <body>
+        
+        <script>
+            $(document).ready(function () {
+                //alert("Welcome to jQuery!");
+                //To add class to an element 
+                $("button").addClass("animated");//Selection by type
+                $(".btn-primary").addClass("bounce");//Selection by class
+                $("#submit").addClass("fadeIn");//Selection by id
+                $(".well").addClass("animated shake");
+                $("#jquery").addClass("animated pulse shake");
+                //To remove class from an element 
+                $("#jquery").removeClass("shake");
+                //To add/Change CSS properties of HTML elements
+                $("span").css("color", "brown");
+                //To add/Change the non - CSS properties of HTML elements
+                $("#default-button").prop("disabled", true);
+                //To add/change HTML markup
+                $(".playground-2").html("<strong>This was put here.</strong>");
+                //To add/change the text between the start and end tags of an element
+                $(".playground-1").text("Text here was replaced by this.");
+                //To remove HTML elements
+                $(".playground-3").remove();
+                //To move elements from one div to another
+                $(".playground-1").appendTo(".playground-5");
+                //To copy elements from one div to another
+                $(".playground-4").clone().appendTo(".playground-6");
+                //To access parent elements
+                $(".playground-6").parent().css("color", "blue");
+                $(".playground-1").parent().addClass("well");
+                //To access children elements
+                $(".playground-5").children().css("color", "orange");
+                //To select all the nth elements with the target class or element type
+                $(".playground:nth-child(2)").addClass("animated bounce");
+                //To target elements based on their positions using :odd or :even selectors (zero-based system)
+                $(".playground:even").addClass("animated shake");
+                //To modify the entire page
+                $("body").addClass("animated zoomInDown");
+            });
+        </script>
+        <header>
+            <h1>Front End Libraries</h1>
+        </header>
+        <div id="front-end-libraries">
+            <div id="bootstrap" class="container-fluid">
+                <div id="heading" class="row">
+                    <div class="col-md-8">
+                        <h3 class="text-center text-danger"><u>Bootstrap</u></h3>
+                    </div>
+                    <div class="col-md-4">
+                        <i id="bootstrap-logo" class="fa fa-exclamation-triangle"></i>
+                    </div>
+                </div>
+                <img class="img-responsive" src="https://i.imgur.com/f4gbQdE.jpg" alt="wallpaper">
+                <!-- The button elements with the btn and btn-default classes are only as wide as the text that they contain. -->
+                <button id="default-button" class="btn btn-default">Default <span class="text-warning">Button</span></button>
+                <button class="btn btn-default btn-block">Block <span class="text-warning">Button</span></button>
+                <div class="row">
+                    <div class="col-md-4">
+                        <button class="btn btn-primary"><i class="fa fa-thumbs-up"></i> Primary Button</button>
+                    </div>
+                    <div class="col-md-4">
+                        <button class="btn btn-info"><i class="fa fa-info-circle"></i> Info Button</button>
+                    </div>
+                    <div class="col-md-4">
+                        <button class="btn btn-danger"><i class="fa fa-trash"></i> Danger Button</button>
+                    </div>
+                </div>
+                <form action="/url-where-you-want-to-submit-form-data">
+                    <fieldset>
+                        <legend>Bootstrap</legend>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <!-- The .well class can create a visual sense of depth for your columns -->
+                                <div class="well">
+                                    <label for="yes-no">
+                                        <input type="radio" id="yes" name="yes-no" checked><em>YES</em>
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="well">
+                                    <label for="yes-no">
+                                        <input type="radio" id="no" name="yes-no"><em>NO</em>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </fieldset>
+                    <fieldset>
+                        <legend>Rating (1-10)</legend>
+                        <div class="row">
+                            <div class="col-md-3">
+                                <label for="rating">
+                                    <input type="checkbox" id="1" name="rating"><strong><pre>1</pre></strong>
+                                </label>
+                            </div>
+                            <div class="col-md-3">
+                                <label for="rating">
+                                    <input type="checkbox" id="2" name="rating"><strong><pre>2</pre></strong>
+                                </label>
+                            </div>
+                            <div class="col-md-3">
+                                <label for="rating">
+                                    <input type="checkbox" id="3" name="rating"><strong><pre>3</pre></strong>
+                                </label>
+                            </div>
+                            <div class="col-md-3">
+                                <label for="rating">
+                                    <input type="checkbox" id="4" name="rating"><strong><pre>4</pre></strong>
+                                </label>
+                            </div>
+                        </div>
+                    </fieldset>
+                    <fieldset>
+                        <legend>Remark and Submit</legend>
+                        <!-- All textual <input>, <textarea>, and <select> elements with the class .form-control have a width of 100%  -->
+                            <div class="row">
+                                <div class="col-md-7">
+                                    <input type="text" class="form-control" placeholder="Enter remarks!" required>
+                                </div>
+                                <div class="col-md-5">
+                                    <!-- The i or span tags can be used for icons -->
+                                    <button id="submit" type="submit" class="btn btn-primary"><span class="fa fa-paper-plane"></span> Submit</button>
+                                </div>
+                            </div>
+                    </fieldset>
+                </form>
+            </div>
+            <div id="jquery" class="container-fluid">
+                <div id="heading" class="row">
+                    <div class="col-md-8">
+                        <h3 class="text-center text-danger"><u>jQuery</u></h3>
+                    </div>
+                    <div class="col-md-4">
+                        <i id="bootstrap-logo" class="fa fa-exclamation-triangle"></i>
+                    </div>
+                </div>
+                <div id="playground">
+                    <div class="playground-1 playground">
+                        <h5>This was already here.</h5>
+                    </div>
+                    <div class="playground-2 playground"></div>
+                    <div class="playground-3 playground">This was here.</div>
+                    <div class="playground-4 playground">"This was here." was removed.</div>
+                    <div class="playground-5 playground">"Text here was replaced by this." is appended after this...</div>
+                    <div class="playground-6 playground">""This was here." was removed." is copied after this.</div>
+                </div>
+            </div>
+            <div id="sass" class="container-fluid">
+                <div id="heading" class="row">
+                    <div class="col-md-8">
+                        <h3 class="text-center text-danger"><u>Sass(Syntactically Awesome StyleSheets)</u></h3>
+                    </div>
+                    <div class="col-md-4">
+                        <i id="bootstrap-logo" class="fa fa-exclamation-triangle"></i>
+                    </div>
+                </div>
+                <div id="scss-playground">
+                    <header>Hello SASS!</header>
+                    <div id="deep">
+                        Deep...
+                        <div id="deeper">
+                            Deeper...
+                            <div id="deepest">
+                                Deepest...
+                            </div>
+                        </div>
+                    </div>
+                    <div id="box" class="container container-table">
+                        BOX SHADOW!
+                    </div>
+                </div>
+                <div id="for-loop">
+                    <p class="text-1">FOR LOOP!</p>
+                    <p class="text-2">FOR LOOP!</p>
+                    <p class="text-3">FOR LOOP!</p>
+                    <p class="text-4">FOR LOOP!</p>
+                    <p class="text-5">FOR LOOP!</p>
+                </div>
+                <div id="each-map">
+                    <div class="box blue-bg container container-table"></div>
+                    <div class="box black-bg container container-table"></div>
+                    <div class="box red-bg container container-table"></div>
+                </div>
+                <div id="while-loop">
+                    <p class="text-1">WHILE LOOP!</p>
+                    <p class="text-2">WHILE LOOP!</p>
+                    <p class="text-3">WHILE LOOP!</p>
+                    <p class="text-4">WHILE LOOP!</p>
+                    <p class="text-5">WHILE LOOP!</p>
+                    <p class="text-6">WHILE LOOP!</p>
+                    <p class="text-7">WHILE LOOP!</p>
+                    <p class="text-8">WHILE LOOP!</p>
+                    <p class="text-9">WHILE LOOP!</p>
+                    <p class="text-10">WHILE LOOP!</p>
+                </div>
+                <div id="extending">
+                    <div class="info">
+                        INFO!
+                    </div>
+                    <div class="important-info">
+                        IMPORTANT INFO!
+                    </div>
+                </div>
+            </div>
+            <div id="react" class="container-fluid">
+                <div id="heading" class="row">
+                    <div class="col-md-8">
+                        <h3 class="text-center text-danger"><u>React and Redux</u></h3>
+                    </div>
+                    <div class="col-md-4">
+                        <i id="bootstrap-logo" class="fa fa-exclamation-triangle"></i>
+                    </div>
+                </div>
+                <div id="root">
+                    <!-- Load React. -->
+                    <!-- Note: when deploying, replace "development.js" with "production.min.js". -->
+                    <script src="https://unpkg.com/react@16/umd/react.development.js" crossorigin></script>
+                    <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js" crossorigin></script>
+                    <!-- Load our React component. -->
+                    <!-- <script type="text/babel"></script> -->
+                    <!-- npx babel input.js --watch --out-file output.js -->
+                    <script src="script-compiled.js"></script>
+                </div>
+            </div>
+        </div>
+        <footer>
+            <h5>&copy; Started on <time datetime="2018-10-14">26<sup>th</sup>October, 2018</time></h5>
+        </footer>
+    </body>
+</html>
