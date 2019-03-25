@@ -1,12 +1,12 @@
 # Web Development Introduction
 
-## HTML5, CSS
+- ## HTML5, CSS
 
-## JavaScript
+- ## JavaScript
 
-## JavaScript
+- ## JavaScript
 
-## jQuery, Bootstrap, SASS
+- ## jQuery, Bootstrap, SASS
 
-## React, Introduction
+- ## React, Introduction
 
