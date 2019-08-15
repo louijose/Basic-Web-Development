@@ -4,8 +4,6 @@
 
 - ## JavaScript
 
-- ## JavaScript
-
 - ## jQuery, Bootstrap, SASS
 
 - ## React
