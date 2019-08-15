@@ -8,5 +8,5 @@
 
 - ## jQuery, Bootstrap, SASS
 
-- ## React, Introduction
+- ## React
 
