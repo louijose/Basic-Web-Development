@@ -3,8 +3,33 @@
     <head>
         <title>Intro to WebDevelopment</title>
     </head>
+    <!-- Basic Page Needs
+    –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+    <meta charset="utf-8">
+    <title>Your page title here :)</title>
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- Mobile Specific Metas
+    –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- FONT
+    –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+    <link href="//fonts.googleapis.com/css?family=Raleway:400,300,600" rel="stylesheet" type="text/css">
+
+    <!-- CSS
+    –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/skeleton.css">
+
+    <!-- Favicon
+    –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+    <link rel="icon" type="image/png" href="images/favicon.png">
+    
 
     <link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com/css?family=K2D" rel="stylesheet">
     <!-- <link rel="stylesheet" type="text/css" href="css-file-name.css"> -->
     <!--
@@ -15,17 +40,24 @@
         /* ":root" works as a container for all variables */
         /* "display: none;" or "visibility: hidden;" hides content for everyone */
         :root {
-            --txt-col: green;/* Variable declaration */
+            --txt-col:  rgb(9, 185, 230);/* Variable declaration */
         }
-        body {
-            background: repeating-linear-gradient(
+        body {  
+                background: linear-gradient(
+                    to right, 
+                    rgba(122, 215, 240), 
+                    rgba(146, 223, 243), 
+                    rgba(183, 233, 247), 
+                    rgba(219, 243, 250), 
+                    rgba(245, 252, 255));
+            /* background: repeating-linear-gradient(
                     45deg,
                     yellow 0px,
                     yellow 40px,
                     black 40px,
-                    black 80px
-            );
-            color: var(--txt-col, green);/* Using a variable with an added fallback value */ 
+                    black 80px 
+            );*/
+            color: var(--txt-col, blue);/* Using a variable with an added fallback value */ 
         }
         main {
             text-align: center;
@@ -42,26 +74,35 @@
         /* Viewport units vw, vh, vmin, vmax 
            eg: 10vw would be 10% of the viewport's width.
         */
+        .pad{
+            padding:50px 50px 50px 50px;
+        }
         a:hover {
-            color: red;
+            color: rgba(219, 243, 250);
         }
         .table {
-            display: none;
+            justify-self: center;
+            justify-content: center;
         }
         .box {
             border-width: 10px;
             border-style: solid;
-            border-color: rgba(0, 0, 128, 0.9);
+            border-color: rgba(122, 156, 240);
             text-align: left;
         }
-        .box:hover {
+        .box:hover {    
             transform: scale(1.1);
-            transform: skewX(3deg);
+           /* transform: skewX(3deg);*/
+           background:rgba(219, 243, 250);
+           border-width: 15px;
+            border-style: solid;
+            border-color:rgba(122, 156, 240);
         }
         .box-spl {
             padding: 40px 50px 40px 200px;
             margin: 50px 300px 50px 300px;
-            background: url(https://i.imgur.com/MJAkxbh.png);
+            background:rgba(219, 243, 250);
+           /* background: url(https://i.imgur.com/MJAkxbh.png);*/
             color: rgb(0, 89, 255);
             transform: scale(0.9);
             font-size: 1.5em;/* This is an example of relative measure */
@@ -71,6 +112,14 @@
             font-size: 60px;
             font-weight: 800;
             text-transform: capitalize;
+        }
+        /*Loading fonts from css library */
+        .roboto-text {
+            font-family: roboto;
+            font-size: 60px;
+            font-weight: 800;
+            text-transform: capitalize;
+            
         }
         /*
             text-transform: uppercase;
@@ -150,6 +199,7 @@
                 "R2E1 R2E2 R2E3 R2E4"
                 "R3E1 R3E2 R3E3 R3E4";/* "." for empty cell */ 
         }
+        
         [type="checkbox"] {
             margin: 10px 5px 15px 5px;
             /* margin: auto; To centre an element */
@@ -160,16 +210,16 @@
         #index {
             box-shadow: 10px 20px 20px 30px rgba(255, 255, 255, 0.19), 25px 20px 20px rgba(255, 255, 255, 0.23);
             line-height: 40px;
-            margin-bottom: 70rem;
+            margin-bottom: 10rem;
         }
         #index:focus {
-            box-shadow: 10px 20px 20px 90px rgba(8, 12, 228, 0.50), 25px 20px 20px rgba(224, 19, 19, 0.23);
+            box-shadow: 1px 2px 2px 10px rgba(183, 233, 247), 5px 10px 10px rgba(224, 19, 19, 0.23);
         }
         #soundclip {
             margin-bottom: 50px;
         }
         #anim:hover {
-            animation-name: rainbow;
+            animation-name: blueshift;
             animation-duration: 3s;
             animation-fill-mode: forwards;
             animation-iteration-count: infinite;
@@ -177,6 +227,7 @@
         }
         @keyframes rainbow {
             0% {
+                
                 background-color: blue;
                 left: 0px;
             }
@@ -189,8 +240,27 @@
                 left: -40px;
             }
         }
+        /*
+        Deatils of animation during specfic time intervals
+        */
+        @keyframes blueshift {
+            0% {
+                
+                background-color: rgb(0, 200, 255);
+                left: 0px;
+            }
+            50% {
+                background-color: rgba(183, 233, 247);
+                left: 40px;
+            }
+            100% {
+                background-color: rgba(245, 252, 255);
+                left: -40px;
+            }
+            
+        }
         #form-section {
-            background-color: silver !important;/* Adding "!important" will override all other CSS declarations and use the marked one */
+            background-color: rgba(122, 215, 240)!important;/* Adding "!important" will override all other CSS declarations and use the marked one */
             padding: 40px 40px 40px 40px;
         }
         /*
@@ -207,11 +277,12 @@
             top: 0px;
             left: 0px;
             width: 100%;
-            background: linear-gradient(35deg, #CCFFFF, #FFCCCC);
+            background: linear-gradient(35deg,rgba(122, 215, 240),rgba(245, 252, 255));
             z-index: 2;
         }
         #nav {
             font-size: 15px;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
         }
         #field {
             margin-top: 20px;
@@ -276,6 +347,7 @@
     </style>
 
     <body>
+        
         <!-- main, nav, header, footer, article, section -->
         <!--
             <div> - groups content
@@ -288,7 +360,7 @@
             <nav id="navbar">
                 <h2 id="nav"><a href="#main">Scroll to top</a></h2>
             </nav>
-            <h1 class="lobster-text">WebDevelopment</h1>
+            <h1 class="roboto-text">A Noob's Guide To Web Developement</h1>
 
             <!--Index-->
             <div id="index" class="box box-spl" tabindex="0">
@@ -312,15 +384,85 @@
                     </ul>
                 </p>
             </div>  
-            
             <hr>
+            <!--Typography-->
+            <div>
+                <!-- Standard Headings -->
+                <h1><strong>Typography</strong></h1>
+                <h1>Heading</h1>
+                <h2>Heading</h2>
+                <h3>Heading</h3>    
+                <h4>Heading</h4>
+                <h5>Heading</h5>
+                <h6>Heading</h6>
 
+                <!-- Base type size -->
+                <p>The base type is 15px over 1.6 line height (24px)</p>
+
+                <!-- Other styled text tags -->
+                <strong>Bolded</strong>
+                <em>Italicized</em>
+                <a>Colored</a>
+                <u>Underlined</u>
+            </div>
+            <hr>
+            <!--Paragraph_Tag-->
+            <div id="paragraph_tag" tabindex="1">
+                <h1>Paragraph Tag</h1>
+                <p>
+                    This is what the text inside a paragraph tag will look like. 
+                </p>
+            </div>
+            <hr>
+            <!--Buttons-->
+            <div>
+                <h1>Button</h1>
+                <a class="button" href="#">Anchor button</a>
+                <button>Button element</button>
+                <input type="submit" value="submit input">
+                <input type="button" value="button input">
+            </div>
+            <hr>
+            <!-- Lists -->
+          <div class="docs-section" id="lists">
+                <h1 class="docs-header">Lists</h1>
+                <div class="row docs-example">
+                  <div class="six columns">
+                    <ul>
+                      <li>Unordered lists have basic styles</li>
+                      <li>
+                        They use the circle list style
+                        <ul>
+                          <li>Nested lists styled to feel right</li>
+                          <li>Can nest either type of list into the other</li>
+                        </ul>
+                      </li>
+                      <li>Just more list items mama san</li>
+                    </ul>
+                  </div>
+                  <div class="six columns">
+                    <ol>
+                      <li>Ordered lists also have basic styles</li>
+                      <li>
+                        They use the decimal list style
+                        <ul>
+                          <li>Ordered and unordered can be nested</li>
+                          <li>Can nest either type of list into the other</li>
+                        </ul>
+                      </li>
+                      <li>Last list item just for the fun</li>
+                    </ol>
+                  </div>
+                </div>
+                <hr>
             <!--HTML-->
-            <div id="html" tabindex="1">
-                <h2 class="k2d">Welcome to HTML</h2>
+            
+            <div id="html" tabindex="2">
+               
+                <h3 class="k2d">Welcome to HTML</h3>
                 <figure>
                     <a href="https://en.wikipedia.org/wiki/HTML" target="_blank" accesskey="h">
-                    <img src="html.png" alt="link" id="anim" class="std-img std-border">
+                    <img src="images/html.png" alt="link" id="anim" class="std-img std-border">
                     </a>
                     <figcaption>Click image to know more about <strong>HTML</strong></figcaption>
                 </figure>
@@ -329,20 +471,46 @@
             <hr>
 
             <!--CSS-->
-            <div id="css" tabindex="2">
-                <h2 class="k2d">Welcome to <strong>CSS</strong></h2>
+            <div id="css" tabindex="3">
+                <h3 class="k2d">Welcome to <strong>CSS</strong></h3>
                 <figure>
                     <a href="https://en.wikipedia.org/wiki/Cascading_Style_Sheets" targer="_blank" accesskey="c">
-                    <img src="css.png" alt="link" id="anim" class="std-img std-border">
+                    <img src="images/css.png" alt="link" id="anim" class="std-img std-border">
                     </a>
                     <figcaption>Click image to know more about <strong>CSS</strong></figcaption>
                 </figure>
             </div>
 
             <hr>
+            <!-- Form-->
+            <h1>Contact Form</h1>
+            <form>
+                    <div >
+                      <div class="six columns">
+                        <label for="exampleEmailInput">Your email</label>
+                        <input class="u-half-width" type="email" placeholder="test@mailbox.com" id="exampleEmailInput">
+                      </div>
+                      <div class="six columns">
+                        <label for="exampleRecipientInput">Reason for using this guide</label>
+                        <select class="u-half-width" id="exampleRecipientInput">
+                          <option value="Option 1">to not be a noob</option>
+                          <option value="Option 2">to try not to be a noob</option>
+                          <option value="Option 3">not a noob but just using for reference</option>
+                        </select>
+                      </div>
+                    </div>
+                    <label for="exampleMessage">Message</label>
+                    <textarea class="u-half-width" placeholder="Reason for contacting?" id="exampleMessage"></textarea>
+                    <label class="example-send-yourself-copy">
+                      <input type="checkbox">
+                      <span class="label-body">Send a copy to yourself</span>
+                    </label>
+                    <input class="button-primary" type="submit" value="Submit">
+            </form>
+
 
             <!--Form for search-->
-            <div id="form-section" class="std-background">
+            <div id="form-section" >
                 <form action="/url-where-you-want-to-submit-form-data">
                     <h3 id="rel-pos"><u>Do you wanna learn?</u></h3>
                     <!--Example for audio-->
@@ -388,8 +556,8 @@
             </div>
 
             <!--Table-->
-            <div id="table">
-                <table class="table">
+            <div id="table" >
+                <table  align="center">
                     <caption>Example Table</caption>
                     <thead>
                     <tr>
@@ -446,6 +614,7 @@
             <div id="foot">
                 &copy; Started on <time datetime="2018-10-06">6<sup>th</sup>October, 2018</time>
             </div>
+
         </main>
     </body>
 </html>
